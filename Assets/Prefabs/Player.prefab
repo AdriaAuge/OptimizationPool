@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 92095174431668218}
   m_Layer: 0
-  m_Name: GeneratorBullets
+  m_Name: BulletsOrigin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -158,3 +158,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerLive: 100
   playerSpeed: 8500
+  bulletOrigin: {fileID: 0}

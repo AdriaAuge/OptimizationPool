@@ -6,12 +6,11 @@ public class BulletsPooling : MonoBehaviour
 {
     public int playerPoolSize;
     public GameObject playerBulletPrebaf;
-    public Transform playerBulletZone;
     public Transform playerBulletParent;
     public List<GameObject> playerBulletsList;
 
     private static BulletsPooling instance;
-    private static BulletsPooling Instance { get { return instance; } }
+    public static BulletsPooling Instance { get { return instance; } }
 
     private void Awake()
     {
@@ -34,14 +33,14 @@ public class BulletsPooling : MonoBehaviour
     {
         for(int i = 0; i < amount; i++)
         {
-            GameObject playerBullet = Instantiate(playerBulletPrebaf, playerBulletZone);
+            GameObject playerBullet = Instantiate(playerBulletPrebaf);
             playerBullet.SetActive(false);
             playerBulletsList.Add(playerBullet);
             playerBullet.transform.parent = playerBulletParent;
         }
     }
 
-    private GameObject RequestPlayerBullets()
+    public GameObject RequestPlayerBullets()
     {
         for(int i = 0; i < playerBulletsList.Count; i++)
         {

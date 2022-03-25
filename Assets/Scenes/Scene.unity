@@ -420,7 +420,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPoolSize: 30
   playerBulletPrebaf: {fileID: 9168406128701798704, guid: 80c5e6140cb23e14d9cac58753577461, type: 3}
-  playerBulletZone: {fileID: 5320852997897315014}
   playerBulletParent: {fileID: 1424345022}
   playerBulletsList: []
 --- !u!1 &1124290507
@@ -647,8 +646,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 391.67902, y: 25, z: 25}
-  m_Center: {x: 179.13449, y: 0, z: 250.43697}
+  m_Size: {x: 331.5592, y: 25, z: 25}
+  m_Center: {x: 178.64172, y: 0, z: 250.43695}
 --- !u!1001 &5228757846685586748
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -660,6 +659,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5228757846419193057, guid: 308a2d6e2c6e7d64290e098a8711102f, type: 3}
+      propertyPath: bulletOrigin
+      value: 
+      objectReference: {fileID: 5320852997897315014}
     - target: {fileID: 5700148600620145420, guid: 308a2d6e2c6e7d64290e098a8711102f, type: 3}
       propertyPath: m_RootOrder
       value: 3

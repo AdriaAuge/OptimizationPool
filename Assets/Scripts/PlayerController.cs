@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     public float playerLive;
     public float playerSpeed;
+    public Transform bulletOrigin;
 
     private Rigidbody rb;
 
@@ -19,6 +20,17 @@ public class PlayerController : MonoBehaviour
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");       
         rb.velocity = new Vector3(horizontal, 0, vertical) * Time.deltaTime * playerSpeed;
+
+    }
+
+    private void Update()
+    {
+        if(Input.GetKey(KeyCode.Space))
+        {
+            GameObject bullet = BulletsPooling.Instance.RequestPlayerBullets();
+            
+            bullet.transform.position = new Vector3(bulletOrigin.transform.position.x, bulletOrigin.transform.position.y, bulletOrigin.transform.position.z);
+        }
     }
 
     private void OnCollisionEnter(Collision hit)
