@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class BulletsPooling : MonoBehaviour
 {
+    [Header("BULLETS POOL")]
     public int playerPoolSize;
-    public GameObject playerBulletPrebaf;
+    public GameObject playerBulletPrefab;
     public Transform playerBulletParent;
     public List<GameObject> playerBulletsList;
 
@@ -33,7 +34,7 @@ public class BulletsPooling : MonoBehaviour
     {
         for(int i = 0; i < amount; i++)
         {
-            GameObject playerBullet = Instantiate(playerBulletPrebaf);
+            GameObject playerBullet = Instantiate(playerBulletPrefab);
             playerBullet.SetActive(false);
             playerBulletsList.Add(playerBullet);
             playerBullet.transform.parent = playerBulletParent;

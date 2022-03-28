@@ -20,12 +20,11 @@ public class PlayerController : MonoBehaviour
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");       
         rb.velocity = new Vector3(horizontal, 0, vertical) * Time.deltaTime * playerSpeed;
-
     }
 
     private void Update()
     {
-        if(Input.GetKey(KeyCode.Space))
+        if(Input.GetKeyDown(KeyCode.Space))
         {
             GameObject bullet = BulletsPooling.Instance.RequestPlayerBullets();
             
