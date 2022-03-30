@@ -72,6 +72,11 @@ public class EnemyController : MonoBehaviour
 
             StartCoroutine("ShootTiming");
         }
+
+        if(enemyLive <= 0)
+        {
+            DestroyedEnemy();
+        }
     }
 
     private IEnumerator ShootTiming()
@@ -86,5 +91,11 @@ public class EnemyController : MonoBehaviour
         {
             enemyLive = enemyLive - PlayerController.playerDamage;
         }
+    }
+
+    private void DestroyedEnemy()
+    {
+        gameObject.SetActive(false);
+        Score.actualScore = Score.actualScore + Score.enemyPoints;
     }
 }

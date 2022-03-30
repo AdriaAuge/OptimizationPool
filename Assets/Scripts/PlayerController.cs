@@ -9,7 +9,11 @@ public class PlayerController : MonoBehaviour
     public int playerLive;
     public static int playerDamage = 50;
     public float playerSpeed;
+
+    [Header("GAMEOBJECTS")]
     public Transform bulletOrigin;
+    public GameObject gameOverPanel;
+    public GameObject enemies;
 
     private Rigidbody rb;
 
@@ -50,6 +54,8 @@ public class PlayerController : MonoBehaviour
 
     private void GameOver()
     {
-        Destroy(gameObject);
+        gameObject.SetActive(false);
+        gameOverPanel.SetActive(true);
+        enemies.SetActive(false);
     }
 }
