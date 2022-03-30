@@ -109,9 +109,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebb8d8e8bb9a45841ab0ebb69ec82c07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyLive: 100
   shootTime: 0.25
   canShoot: 0
-  enemyPoolSize: 10
+  enemyPoolSize: 5
   enemyBulletPrebaf: {fileID: 8691338200279420830, guid: 8710c4e8e63d8f646875685959495f64, type: 3}
   enemyBulletOrigin: {fileID: 2734992269208820626}
   enemyBulletsList: []

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BulletsPooling : MonoBehaviour
 {
-    [Header("BULLETS POOL")]
+    [Header("PLAYER BULLETS POOL")]
     public int playerPoolSize;
     public GameObject playerBulletPrefab;
     public Transform playerBulletParent;

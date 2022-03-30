@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    public static float enemyDamage;
+    public int enemyLive;
+    public static int enemyDamage = 10;
     public float shootTime;
     public bool canShoot;
 
@@ -38,7 +39,7 @@ public class EnemyController : MonoBehaviour
 
     private void AddEnemyBulletsToPool(int amount)
     {
-        for(int e = 0; e < amount; e++)
+        for(int b = 0; b < amount; b++)
         {
             GameObject enemyBullet = Instantiate(enemyBulletPrebaf);
             enemyBullet.SetActive(false);
@@ -49,12 +50,12 @@ public class EnemyController : MonoBehaviour
 
     private GameObject RequestEnemyBullets()
     {
-        for(int i = 0; i < enemyBulletsList.Count; i++)
+        for(int b = 0; b < enemyBulletsList.Count; b++)
         {
-            if(!enemyBulletsList[i].activeSelf)
+            if(!enemyBulletsList[b].activeSelf)
             {
-                enemyBulletsList[i].SetActive(true);
-                return enemyBulletsList[i];
+                enemyBulletsList[b].SetActive(true);
+                return enemyBulletsList[b];
             }
         }
         return null;
@@ -77,5 +78,13 @@ public class EnemyController : MonoBehaviour
     {
         yield return new WaitForSeconds(shootTime);
         canShoot = true;
+    }
+
+    private void OnCollisionEnter(Collision bullet)
+    {
+        if(bullet.gameObject.tag == "PlayerBullets")
+        {
+            enemyLive = enemyLive - PlayerController.playerDamage;
+        }
     }
 }

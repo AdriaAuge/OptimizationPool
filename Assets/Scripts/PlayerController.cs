@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    public float playerLive;
+    [Header("PLAYER STATS")]
+    public int playerLive;
+    public static int playerDamage = 50;
     public float playerSpeed;
     public Transform bulletOrigin;
 
@@ -30,6 +33,11 @@ public class PlayerController : MonoBehaviour
             
             bullet.transform.position = new Vector3(bulletOrigin.transform.position.x, bulletOrigin.transform.position.y, bulletOrigin.transform.position.z);
         }
+
+        if(playerLive <= 0)
+        {
+            GameOver();
+        }
     }
 
     private void OnCollisionEnter(Collision hit)
@@ -38,5 +46,10 @@ public class PlayerController : MonoBehaviour
         {
             playerLive = playerLive - EnemyController.enemyDamage;
         }
+    }
+
+    private void GameOver()
+    {
+        Destroy(gameObject);
     }
 }
