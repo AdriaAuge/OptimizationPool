@@ -7,7 +7,8 @@ public class PlayerController : MonoBehaviour
 {
     [Header("PLAYER STATS")]
     public int playerLive;
-    public static int playerDamage = 50;
+    public int playerDamage;
+    public static int playerTotalDamage;
     public float playerSpeed;
 
     [Header("GAMEOBJECTS")]
@@ -20,6 +21,11 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+    }
+
+    private void Start()
+    {
+        playerTotalDamage = playerDamage;
     }
 
     private void FixedUpdate()

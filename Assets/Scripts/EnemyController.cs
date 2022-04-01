@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
+    [Header("ENEMY STATS")]
     public int enemyLive;
+    private int enemyOriginalLive;
     public static int enemyDamage = 10;
+    public float enemySpeed;
     public float shootTime;
     public bool canShoot;
 
@@ -15,11 +18,21 @@ public class EnemyController : MonoBehaviour
     public Transform enemyBulletOrigin;
     public List<GameObject> enemyBulletsList;
 
+    private Rigidbody enemyRb;
+
+    private void Awake()
+    {
+        enemyRb = GetComponent<Rigidbody>();
+    }
+
     private void Start()
     {
         AddEnemyBulletsToPool(enemyPoolSize);
 
+        enemyOriginalLive = enemyLive;
         canShoot = true;
+
+        InvokeRepeating("Shooting", 0.01f, shootTime);
     }
 
     private void AddEnemyBulletsToPool(int amount)
@@ -46,40 +59,40 @@ public class EnemyController : MonoBehaviour
         return null;
     }
 
+    private void Shooting()
+    {
+        GameObject bullet = RequestEnemyBullets();           
+        bullet.transform.position = new Vector3(enemyBulletOrigin.transform.position.x, enemyBulletOrigin.transform.position.y, enemyBulletOrigin.transform.position.z);
+    }
+
     private void Update()
     {
-        if(canShoot == true)
-        {
-            canShoot = false;
-            
-            GameObject bullet = RequestEnemyBullets();           
-            bullet.transform.position = new Vector3(enemyBulletOrigin.transform.position.x, enemyBulletOrigin.transform.position.y, enemyBulletOrigin.transform.position.z);
-
-            StartCoroutine("ShootTiming");
-        }
-
         if(enemyLive <= 0)
         {
             DestroyedEnemy();
         }
     }
 
-    private IEnumerator ShootTiming()
+    private void FixedUpdate()
     {
-        yield return new WaitForSeconds(shootTime);
-        canShoot = true;
+        enemyRb.velocity = new Vector3(0, 0, -enemySpeed * Time.deltaTime);
     }
 
-    private void OnCollisionEnter(Collision bullet)
+    private void OnCollisionEnter(Collision collider)
     {
-        if(bullet.gameObject.tag == "PlayerBullets")
+        if(collider.gameObject.tag == "PlayerBullets")
         {
-            enemyLive = enemyLive - PlayerController.playerDamage;
+            enemyLive = enemyLive - PlayerController.playerTotalDamage;
+        }
+        else if(collider.gameObject.tag == "Wall")
+        {
+            DestroyedEnemy();
         }
     }
 
     private void DestroyedEnemy()
     {
         this.gameObject.SetActive(false);
+        enemyLive = enemyOriginalLive;
     }
 }

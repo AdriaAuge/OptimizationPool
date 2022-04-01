@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class EnemyGenerator : MonoBehaviour
 {
+
     [Header("ENEMIES POOL")]
     public int enemyPoolSize;
+    public float initialTime;
     public float generationTime;
     public GameObject enemyPrefab;
     public Transform enemyParent;
@@ -29,7 +31,7 @@ public class EnemyGenerator : MonoBehaviour
     private void Start()
     {
         AddEnemiesToPool(enemyPoolSize);
-        InvokeRepeating("Generation", generationTime, generationTime);
+        InvokeRepeating("Generation", initialTime, generationTime);
     }
 
     private void AddEnemiesToPool(int amount)
