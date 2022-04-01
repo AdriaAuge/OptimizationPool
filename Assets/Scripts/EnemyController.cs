@@ -15,21 +15,6 @@ public class EnemyController : MonoBehaviour
     public Transform enemyBulletOrigin;
     public List<GameObject> enemyBulletsList;
 
-    private static EnemyController instance;
-    public static EnemyController Instance { get { return instance; } }
-
-    private void Awake()
-    {
-        if(instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
-
     private void Start()
     {
         AddEnemyBulletsToPool(enemyPoolSize);
@@ -67,7 +52,7 @@ public class EnemyController : MonoBehaviour
         {
             canShoot = false;
             
-            GameObject bullet = EnemyController.Instance.RequestEnemyBullets();           
+            GameObject bullet = RequestEnemyBullets();           
             bullet.transform.position = new Vector3(enemyBulletOrigin.transform.position.x, enemyBulletOrigin.transform.position.y, enemyBulletOrigin.transform.position.z);
 
             StartCoroutine("ShootTiming");
@@ -95,7 +80,6 @@ public class EnemyController : MonoBehaviour
 
     private void DestroyedEnemy()
     {
-        gameObject.SetActive(false);
-        Score.actualScore = Score.actualScore + Score.enemyPoints;
+        this.gameObject.SetActive(false);
     }
 }

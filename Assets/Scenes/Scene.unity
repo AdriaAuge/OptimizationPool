@@ -250,7 +250,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPoolSize: 35
-  generationTime: 0
+  generationTime: 3
   enemyPrefab: {fileID: 3758831129067462578, guid: 2e2dc09f3a1a7af40adc96d51517cee0, type: 3}
   enemyParent: {fileID: 1124290508}
   enemyList: []
