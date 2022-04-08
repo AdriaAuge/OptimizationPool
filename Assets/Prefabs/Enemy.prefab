@@ -127,6 +127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyLive: 100
+  enemyDamage: 50
   enemySpeed: 1500
   shootTime: 0.25
   canShoot: 0

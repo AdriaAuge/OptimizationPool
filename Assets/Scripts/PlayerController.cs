@@ -54,7 +54,7 @@ public class PlayerController : MonoBehaviour
     {
         if(hit.gameObject.tag == "Enemy")
         {
-            playerLive = playerLive - EnemyController.enemyDamage;
+            playerLive = playerLive - EnemyController._enemyDamage;
         }
     }
 

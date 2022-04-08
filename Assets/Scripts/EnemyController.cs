@@ -7,7 +7,8 @@ public class EnemyController : MonoBehaviour
     [Header("ENEMY STATS")]
     public int enemyLive;
     private int enemyOriginalLive;
-    public static int enemyDamage = 50;
+    public int enemyDamage;
+    public static int _enemyDamage;
     public float enemySpeed;
     public float shootTime;
     public bool canShoot;
@@ -23,6 +24,8 @@ public class EnemyController : MonoBehaviour
     private void Awake()
     {
         enemyRb = GetComponent<Rigidbody>();
+
+        _enemyDamage = enemyDamage;
     }
 
     private void Start()
