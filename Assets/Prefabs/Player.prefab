@@ -156,6 +156,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bf2a801b7442984bbf0f44668e2ffd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerLive: 100
+  playerLive: 250
+  playerDamage: 95
   playerSpeed: 8500
   bulletOrigin: {fileID: 92095174431668218}
+  gameOverPanel: {fileID: 0}
+  enemies: {fileID: 0}

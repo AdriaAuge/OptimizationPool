@@ -7,7 +7,7 @@ public class EnemyController : MonoBehaviour
     [Header("ENEMY STATS")]
     public int enemyLive;
     private int enemyOriginalLive;
-    public static int enemyDamage = 10;
+    public static int enemyDamage = 50;
     public float enemySpeed;
     public float shootTime;
     public bool canShoot;

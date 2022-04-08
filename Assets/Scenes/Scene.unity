@@ -1013,7 +1013,7 @@ PrefabInstance:
       objectReference: {fileID: 5320852997897315014}
     - target: {fileID: 5228757846419193057, guid: 308a2d6e2c6e7d64290e098a8711102f, type: 3}
       propertyPath: playerDamage
-      value: 100
+      value: 95
       objectReference: {fileID: 0}
     - target: {fileID: 5228757846419193057, guid: 308a2d6e2c6e7d64290e098a8711102f, type: 3}
       propertyPath: gameOverPanel
